@@ -25,8 +25,7 @@ class TutorialController extends Controller
     public function store(Request $request)
     {
       $this->validate($request,[
-        'title' => 'required',
-        'body'  => 'required'
+        'title' => 'required', 'body'  => 'required'
       ]);
 
       $tutorial = $request->user()->tutorials()->create([
@@ -37,4 +36,43 @@ class TutorialController extends Controller
 
       return $tutorial;
     }
+
+    public function update(Request $request, $id)
+    {
+      $this->validate($request,[
+        'title' => 'required', 'body'  => 'required'
+      ]);
+
+      $tut = Tutorial::find($id);
+
+      //verify ownership
+      if($request->user()->id != $tut->user_id){
+        return response()->json(['error' => 'you dont have access to this tutorial'],403);
+      }
+
+      $tut->title = $request->title;
+      $tut->slug = str_slug($request->title);
+      $tut->body = $request->body;
+      $tut->save();
+
+      return $tut;
+    }
+
+    public function destroy(Request $request, $id)
+    {
+      $tut = Tutorial::find($id);
+
+      //verify ownership
+      if($request->user()->id != $tut->user_id){
+        return response()->json(['error' => 'you dont have access to this tutorial'],403);
+      }
+
+      $tut->delete();
+
+      return response()->json([
+        'success' => true,
+        'message' => 'delete successfully'
+      ], 200);
+    }
+
 }
