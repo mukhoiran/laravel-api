@@ -93,6 +93,61 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+
+                <hr>
+                <ol>
+                  <li>Configure DB on .env</li>
+                  <li>Move User model to folder Models</li>
+                  <li>Delete password migrate</li>
+                  <li>Rename field name to username on user migrate</li>
+                  <li>fillable username</li>
+                  <li>php artisan migrate</li>
+                  <li>Installing postman</li>
+                  <li>create route group API</li>
+                  <li>create AuthController</li>
+                  <li>create function signup</li>
+                  <li>Testing signup (header and body)</li>
+                  <li>composer require tymon/jwt-auth:1.0.* --prefer-source</li>
+                  <li>add tymon providers (2) on config/app.php</li>
+                  <li>php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"</li>
+                  <li>generate jwt token => php artisan jwt:secret</li>
+                  <li>add JWT_SECRET on .env (token)</li>
+                  <li>adjust User model path on config/jwt.php and auth.php</li>
+                  <li>create route signin</li>
+                  <li>add function signin on AuthController (get from docs)</li>
+                  <li>Modify model User</li>
+                  <li>Testing login (header and body)</li>
+                  <li>Add middleware route on Kernel.php</li>
+                  <li>create group routes jwt.auth</li>
+                  <li>create userController@show</li>
+                  <li>test access page profile</li>
+                  <li>php artisan make:migration create_tutorials_table --create=tutorials</li>
+                  <li>add fields title(string), slug(string)->unique, body(text), user_id(BigInteger)->unsigned() foreignkey,</li>
+                  <li>create routes tutorial</li>
+                  <li>create controller TutorialController</li>
+                  <li>add function create on the controller</li>
+                  <li>php artisan make:model Tutorial</li>
+                  <li>set up the model belogsTo</li>
+                  <li>set User modals hasMany</li>
+                  <li>Test create tutorial</li>
+                  <li>create routes show tutorial</li>
+                  <li>change mothod create to store</li>
+                  <li>add function index</li>
+                  <li>add function show</li>
+                  <li>test read tutorial</li>
+                  <li>create routes update and delete</li>
+                  <li> add function update and delete</li>
+                  <li>test update and delete</li>
+                  <li>create route post comment</li>
+                  <li>create migration table comment</li>
+                  <li>create controller and model for comment</li>
+                  <li>add function store on comment controller</li>
+                  <li>test posting comment</li>
+                  <li>Create middleware Cors for avoid ajax cors issue</li>
+                  <li>add middleware to kernel</li>
+                  <li>modify tutorialController for show comments</li>
+                  <li>Add Middleware Cors</li>
+                </ol>
             </div>
         </div>
     </body>
