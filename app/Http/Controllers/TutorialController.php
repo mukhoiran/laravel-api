@@ -11,11 +11,17 @@ class TutorialController extends Controller
     public function index()
     {
       return Tutorial::all();
+
+      //show with comment
+      // return Tutorial::with('comments')->get();
     }
 
     public function show($id)
     {
-      $tutorial = Tutorial::find($id);
+      // $tutorial = Tutorial::find($id);
+
+      //show with comment
+      $tutorial = Tutorial::with('comments')->where('id',$id)->first();
 
       if(!$tutorial) return response()->json(['error' => 'id not found'],404);
 
