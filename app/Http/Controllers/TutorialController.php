@@ -8,7 +8,21 @@ use Illuminate\Http\Request;
 
 class TutorialController extends Controller
 {
-    public function create(Request $request)
+    public function index()
+    {
+      return Tutorial::all();
+    }
+
+    public function show($id)
+    {
+      $tutorial = Tutorial::find($id);
+
+      if(!$tutorial) return response()->json(['error' => 'id not found'],404);
+
+      return $tutorial;
+    }
+
+    public function store(Request $request)
     {
       $this->validate($request,[
         'title' => 'required',
