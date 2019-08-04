@@ -1,2 +1,2 @@
 # laravel-api
-Documentation laravel API with JWT
+Documentation laravel REST API with JWT
